@@ -9,16 +9,16 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Obtemos o caminho da URL
+
 $path = $_SERVER['REQUEST_URI'];
 
-// Remove query strings
+
 $path = parse_url($path, PHP_URL_PATH);
 
-// Remove possíveis barras antes de processar
+
 $path = rtrim($path, '/');
 
-// Normalizamos o prefixo
+
 if (strpos($path, '/api') === 0) {
     $path = substr($path, 4); // remove "/api"
 }
